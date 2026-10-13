@@ -1,0 +1,35 @@
+# Default host configuration. Override by dropping a user config at
+# %APPDATA%/ai-architecture-render-generator/config.toml
+
+[host]
+name = "ai-architecture-render-generator"
+api_version = "1.2"
+allow_unsigned_extensions = true
+extension_dirs = ["extensions", "plugins/local"]
+hot_reload = true
+
+[render]
+default_renderer = "blueprint"
+output_dir = "renders"
+image_format = "png"
+resolution = [2048, 1536]
+dpi = 300
+
+[model_broker]
+mirror = "https://models.ai-architecture-render-generator.dev/v1"
+cache_dir = "models/weights"
+prefer_gpu = false
+max_concurrent = 2
+
+[cache]
+dir = "plugins/__cache__"
+max_entries = 512
+ttl_seconds = 86400
+
+[ipc]
+pipe_name = "aarg_host_v1"
+bind = "loopback"
+
+[telemetry]
+enabled = false
+endpoint = ""
